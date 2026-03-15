@@ -1,0 +1,5 @@
+outs:
+- md5: 31060dced524fd6cd79163ab5e234ce8
+  size: 148950
+  hash: md5
+  path: technopark.csv
