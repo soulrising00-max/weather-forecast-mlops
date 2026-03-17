@@ -1,0 +1,9 @@
+streamlit
+plotly
+tensorflow
+keras
+scikit-learn
+joblib
+requests
+numpy
+pandas
