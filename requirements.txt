@@ -1,7 +1,6 @@
 streamlit
 plotly
-tensorflow
-keras
+tensorflow==2.18.0
 scikit-learn
 joblib
 requests
