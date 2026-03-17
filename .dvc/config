@@ -1,5 +1,4 @@
 [core]
-    remote = gdrive
-['remote "gdrive"']
-    url = gdrive://1WKb5Eyb6kqlBhwx3FLrs_CrRTJLmwg_-
-    gdrive_acknowledge_abuse = true
+    remote = dagshub
+['remote "dagshub"']
+    url = https://dagshub.com/soulrising00-max/weather-forecast-mlops.dvc

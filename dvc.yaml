@@ -12,3 +12,18 @@ stages:
     params:
       - window_size
       - horizon
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed/
+      - params.yaml
+    outs:
+      - models/technopark_model.keras
+      - models/thampanoor_model.keras
+    metrics:
+      - metrics.json:
+          cache: false
+    plots:
+      - version.json:
+          cache: false
