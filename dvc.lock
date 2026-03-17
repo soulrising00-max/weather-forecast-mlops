@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/technopark.csv
+      hash: md5
+      md5: 6df58b507a871566b3adbd433ab337df
+      size: 148906
+    - path: data/raw/thampanoor.csv
+      hash: md5
+      md5: 924896e7444eafc35699360e4bc5cc6a
+      size: 149256
+    - path: params.yaml
+      hash: md5
+      md5: d0996ec456d4d029f77db2d653dba305
+      size: 121
+    - path: src/preprocess.py
+      hash: md5
+      md5: 61db44bae23ac9690f2c002f8285bc79
+      size: 1695
+    params:
+      params.yaml:
+        horizon: 24
+        window_size: 48
+    outs:
+    - path: data/processed/
+      hash: md5
+      md5: aecd56672853bc566e6aaa52e2455ddd.dir
+      size: 21331840
+      nfiles: 8
+    - path: models/scaler.pkl
+      hash: md5
+      md5: 7e21b73d40240c79c7dd6a4ac4b8993a
+      size: 1239

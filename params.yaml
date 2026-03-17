@@ -1,0 +1,8 @@
+window_size: 48
+horizon: 24
+lstm_units: 64
+dropout: 0.2
+epochs: 30
+patience: 5
+batch_size: 32
+learning_rate: 0.001

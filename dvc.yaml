@@ -1,0 +1,14 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - src/preprocess.py
+      - data/raw/technopark.csv
+      - data/raw/thampanoor.csv
+      - params.yaml
+    outs:
+      - data/processed/
+      - models/scaler.pkl
+    params:
+      - window_size
+      - horizon
