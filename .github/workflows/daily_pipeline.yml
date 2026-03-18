@@ -22,9 +22,9 @@ jobs:
 
       - name: Configure DVC remote
         run: |
-          dvc remote add -d dagshub https://dagshub.com/YOUR_USERNAME/YOUR_REPO.dvc
+          dvc remote add -d dagshub https://dagshub.com/soulrising00-max/weather-forecast-mlops.dvc
           dvc remote modify dagshub auth basic
-          dvc remote modify dagshub user YOUR_DAGSHUB_USERNAME
+          dvc remote modify dagshub user soulrising00-max
           dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
 
       - name: Pull DVC data
