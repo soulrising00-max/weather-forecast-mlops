@@ -8,17 +8,17 @@ jobs:
   retrain:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GIT_TOKEN }}
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt dvc[gdrive]
+        run: pip install -r requirements.txt dvc
 
       - name: Configure DVC remote
         run: |
@@ -40,6 +40,7 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
+          git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}
           git add dvc.lock metrics.json version.json
           git diff --staged --quiet || git commit -m "auto: retrain $(date -u +%Y-%m-%d)"
           git push
