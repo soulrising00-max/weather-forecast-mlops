@@ -1,0 +1,45 @@
+name: Daily retrain
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GIT_TOKEN }}
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt dvc[gdrive]
+
+      - name: Configure DVC remote
+        run: |
+          dvc remote add -d dagshub https://dagshub.com/YOUR_USERNAME/YOUR_REPO.dvc
+          dvc remote modify dagshub auth basic
+          dvc remote modify dagshub user YOUR_DAGSHUB_USERNAME
+          dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
+
+      - name: Pull DVC data
+        run: dvc pull
+
+      - name: Run pipeline
+        run: dvc repro
+
+      - name: Push artifacts
+        run: dvc push
+
+      - name: Commit metadata
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add dvc.lock metrics.json version.json
+          git diff --staged --quiet || git commit -m "auto: retrain $(date -u +%Y-%m-%d)"
+          git push
