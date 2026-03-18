@@ -7,4 +7,3 @@ altair>=5.0.0
 plotly
 pyyaml
 h5py
-keras
