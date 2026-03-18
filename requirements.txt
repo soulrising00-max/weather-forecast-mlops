@@ -1,9 +1,8 @@
-scikit-learn==1.3.2
-pandas
-numpy
-requests
-streamlit>=1.32.0
-altair>=5.0.0
+streamlit
 plotly
-pyyaml
-h5py
+tensorflow
+keras
+scikit-learn
+requests
+numpy
+pandas
