@@ -3,7 +3,6 @@ on:
   schedule:
     - cron: "0 1 * * *"
   workflow_dispatch:
-
 jobs:
   retrain:
     runs-on: ubuntu-latest
@@ -12,30 +11,22 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GIT_TOKEN }}
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install dependencies
         run: pip install -r requirements.txt dvc
-
       - name: Configure DVC remote
         run: |
-          dvc remote add -d dagshub https://dagshub.com/soulrising00-max/weather-forecast-mlops.dvc
-          dvc remote modify dagshub auth basic
-          dvc remote modify dagshub user soulrising00-max
-          dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
-
+          dvc remote modify dagshub --local auth basic
+          dvc remote modify dagshub --local user soulrising00-max
+          dvc remote modify dagshub --local password ${{ secrets.DAGSHUB_TOKEN }}
       - name: Pull DVC data
         run: dvc pull
-
       - name: Run pipeline
         run: dvc repro
-
       - name: Push artifacts
         run: dvc push
-
       - name: Commit metadata
         run: |
           git config user.email "actions@github.com"
