@@ -2,7 +2,7 @@ import streamlit as st, json
 import numpy as np
 import pandas as pd
 import plotly.express as px
-from tensorflow import keras
+import keras
 import joblib, requests
 from datetime import datetime, timedelta, timezone
 
@@ -94,7 +94,7 @@ for tab, region in zip([tab1, tab2], ["technopark", "thampanoor"]):
         with st.spinner("Fetching latest data and running forecast..."):
             try:
                 df_recent = fetch_recent(coords["lat"], coords["lon"])
-                model = keras.models.load_model(f"models/{region}_model.keras")
+                model = keras.saving.load_model(f"models/{region}_model.keras")
                 forecast = make_forecast(df_recent, model, scaler)
 
                 # Build forecast timestamps (next 24 hours)
