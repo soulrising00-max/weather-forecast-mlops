@@ -1,4 +1,4 @@
 [core]
     remote = dagshub
 ['remote "dagshub"']
-    url = https://dagshub.com/soulrising00-max/weather-forecast-mlops.dvc
+    url = https://dagshub.com/soulrising00-max/weather-forecast-mlops.dvc    
