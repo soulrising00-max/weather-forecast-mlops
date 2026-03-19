@@ -8,7 +8,6 @@ stages:
       - params.yaml
     outs:
       - data/processed/
-      - models/scaler.pkl
     params:
       - window_size
       - horizon
@@ -18,9 +17,7 @@ stages:
       - src/train.py
       - data/processed/
       - params.yaml
-    outs:
-      - models/technopark_model.keras
-      - models/thampanoor_model.keras
+    outs: []
     metrics:
       - metrics.json:
           cache: false
