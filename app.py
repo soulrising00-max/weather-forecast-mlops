@@ -5,6 +5,10 @@ import plotly.express as px
 import keras
 import joblib, requests
 from datetime import datetime, timedelta, timezone
+import os
+
+if not os.path.exists("models/scaler.pkl"):
+    os.system("dvc pull")
 
 with open("version.json") as f:
     v = json.load(f)
