@@ -13,12 +13,12 @@ stages:
       size: 149256
     - path: params.yaml
       hash: md5
-      md5: d0996ec456d4d029f77db2d653dba305
-      size: 121
+      md5: ef8a97dd3dd8235fb239d28fcd2a4e36
+      size: 114
     - path: src/preprocess.py
       hash: md5
-      md5: 61db44bae23ac9690f2c002f8285bc79
-      size: 1695
+      md5: bb3c8008faa904cf2edb24a7a60ee22f
+      size: 1637
     params:
       params.yaml:
         horizon: 24
@@ -29,10 +29,6 @@ stages:
       md5: aecd56672853bc566e6aaa52e2455ddd.dir
       size: 21331840
       nfiles: 8
-    - path: models/scaler.pkl
-      hash: md5
-      md5: 7e21b73d40240c79c7dd6a4ac4b8993a
-      size: 1239
   train:
     cmd: python src/train.py
     deps:
@@ -43,26 +39,18 @@ stages:
       nfiles: 8
     - path: params.yaml
       hash: md5
-      md5: d0996ec456d4d029f77db2d653dba305
-      size: 121
+      md5: ef8a97dd3dd8235fb239d28fcd2a4e36
+      size: 114
     - path: src/train.py
       hash: md5
-      md5: 8e806dd477a9a8d1ad7852d2a4e3c74a
-      size: 2895
+      md5: d15d3a761ddd19c5878596571f9d18d0
+      size: 2808
     outs:
     - path: metrics.json
       hash: md5
-      md5: d38e5e968683cb886cc569cd1ad24cb5
-      size: 121
-    - path: models/technopark_model.keras
-      hash: md5
-      md5: b014cf0b0769dd1fa4832af8aa98c473
-      size: 261043
-    - path: models/thampanoor_model.keras
-      hash: md5
-      md5: 84991c25aeb47b920b47356d9a3521ce
-      size: 261051
+      md5: 6fd23dd7d4d9ba5446405cf10d242ab1
+      size: 116
     - path: version.json
       hash: md5
-      md5: ad19af417a4913d37811c9675e349877
-      size: 203
+      md5: 20d853bfbb28f9af120318d17e573320
+      size: 195

@@ -1,6 +1,6 @@
 {
-  "mae_technopark": 0.8591,
-  "rmse_technopark": 1.0877,
-  "mae_thampanoor": 0.9191,
-  "rmse_thampanoor": 1.1498
+  "mae_technopark": 0.8665,
+  "rmse_technopark": 1.1031,
+  "mae_thampanoor": 0.7652,
+  "rmse_thampanoor": 0.9883
 }
