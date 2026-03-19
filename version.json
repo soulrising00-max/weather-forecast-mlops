@@ -1,0 +1,9 @@
+{
+  "version": "20260319",
+  "trained_on": "2026-03-19",
+  "git_sha": "2a5bebc",
+  "mae_technopark": 0.869,
+  "rmse_technopark": 1.0929,
+  "mae_thampanoor": 0.7958,
+  "rmse_thampanoor": 1.0263
+}
